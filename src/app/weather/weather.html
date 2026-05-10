@@ -1,0 +1,114 @@
+<section
+  class="min-h-screen flex flex-col mt-13 items-center justify-center bg-linear-to-br from-black via-purple-950 to-indigo-950 p-6"
+>
+  <!-- Heading -->
+  <div
+    class="border-2 border-purple-500/40 bg-purple-500/10 shadow-[0_0_25px_rgba(168,85,247,0.7)] p-5 m-4 rounded-2xl"
+  >
+    <h1
+      class="text-3xl md:text-6xl font-extrabold leading-tight text-transparent bg-clip-text text-center bg-linear-to-r from-purple-400 to-pink-500 drop-shadow-[0_0_20px_rgba(168,85,247,0.7)]"
+    >
+      Weather App
+    </h1>
+  </div>
+
+  <!-- Main Container -->
+  <div
+    class="w-full max-w-5xl border-purple-500/40 bg-purple-500/10 shadow-[0_0_25px_rgba(168,85,247,0.7)] rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden"
+  >
+    <!-- LEFT SIDE -->
+    <div class="w-full md:w-1/2 p-10 flex flex-col justify-center items-center text-white">
+      <!-- City -->
+      <h2 class="text-3xl font-semibold mb-2">
+        {{ weatherData?.name || 'Search City' }}
+      </h2>
+
+      <!-- Date -->
+      <p class="text-gray-300 mb-6">
+        {{ currentDate }}
+      </p>
+
+      <!-- Weather Icon -->
+      <div class="text-8xl mb-4">🌤️</div>
+
+      <!-- Temperature -->
+      <h1 class="text-7xl font-extrabold">{{ weatherData?.main?.temp || '--' }}°C</h1>
+
+      <!-- Weather Condition -->
+      <p class="text-lg text-gray-300 mt-2">
+        {{ weatherData?.weather?.[0]?.main || 'No Data' }}
+      </p>
+
+      <!-- Extra Info -->
+      <div class="flex gap-6 mt-8 text-sm text-gray-300 flex-wrap justify-center">
+        <div>
+          💧 Humidity:
+          {{ weatherData?.main?.humidity || '--' }}%
+        </div>
+
+        <div>
+          🌬️ Wind:
+          {{ weatherData?.wind?.speed || '--' }} km/h
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div
+      class="w-full md:w-1/2 p-10 border-purple-500/40 bg-purple-500/10 shadow-[0_0_25px_rgba(168,85,247,0.7)] text-white flex flex-col"
+    >
+      <!-- Search -->
+      <div class="flex gap-2 mb-8">
+        <input
+          [(ngModel)]="city"
+          type="text"
+          placeholder="Search city..."
+          class="w-full p-3 text-white placeholder-gray-300 focus:outline-none rounded-full border border-purple-500/40 bg-purple-500/10 shadow-[0_0_25px_rgba(168,85,247,0.4)]"
+        />
+
+        <button
+          (click)="getData()"
+          class="px-5 bg-purple-600 hover:bg-purple-700 rounded-xl transition-all duration-300"
+        >
+          🔍
+        </button>
+      </div>
+
+      <!-- Weather Cards -->
+      <div class="grid grid-cols-2 gap-4">
+        <!-- Feels Like -->
+        <div class="bg-white/10 p-4 rounded-xl text-center">
+          <p class="text-sm text-gray-300">Feels Like</p>
+
+          <p class="text-2xl font-bold">{{ weatherData?.main?.feels_like || '--' }}°C</p>
+        </div>
+
+        <!-- Pressure -->
+        <div class="bg-white/10 p-4 rounded-xl text-center">
+          <p class="text-sm text-gray-300">Pressure</p>
+
+          <p class="text-2xl font-bold">
+            {{ weatherData?.main?.pressure || '--' }}
+          </p>
+        </div>
+
+        <!-- Visibility -->
+        <div class="bg-white/10 p-4 rounded-xl text-center">
+          <p class="text-sm text-gray-300">Visibility</p>
+
+          <p class="text-2xl font-bold">{{ weatherData?.visibility / 1000 || '--' }} km</p>
+        </div>
+
+        <!-- Max Temp -->
+        <div class="bg-white/10 p-4 rounded-xl text-center">
+          <p class="text-sm text-gray-300">Max Temp</p>
+
+          <p class="text-2xl font-bold">{{ weatherData?.main?.temp_max || '--' }}°C</p>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="mt-auto text-center text-gray-400 text-sm pt-8">Live Weather Updates 🌍</div>
+    </div>
+  </div>
+</section>

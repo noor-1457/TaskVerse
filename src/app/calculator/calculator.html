@@ -1,0 +1,56 @@
+<section class="min-h-screen m-15">
+  <div
+    class="border-2 border-purple-500/40 bg-purple-500/10 shadow-[0_0_25px_rgba(168,85,247,0.7)] p-5 m-4 rounded-2xl"
+  >
+    <h1
+      class="text-4xl md:text-7xl font-extrabold leading-tight text-transparent bg-clip-text text-center bg-gradient-to-r from-purple-400 to-pink-500 drop-shadow-[0_0_20px_rgba(168,85,247,0.7)]"
+    >
+      Calculator
+    </h1>
+  </div>
+  <!-- display value -->
+  <div
+    class="border-2 justify-between border-purple-500/40 bg-purple-500/10 shadow-[0_0_25px_rgba(168,85,247,0.7)] p-5 flex flex-row m-4 rounded-2xl min-w-20"
+  >
+    <button
+      (click)="delete()"
+      class="h-13 w-11 p-2 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 text-white text-2xl font-bold hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.5)] cursor-pointer"
+    >
+      <lucide-icon [img]="Delete" [size]="24"></lucide-icon>
+    </button>
+    <div class="text-4xl text-right text-white h-10">
+      {{ displayValue }}
+    </div>
+  </div>
+  <div
+    class="border-2 border-purple-500/40 bg-purple-500/10 shadow-[0_0_25px_rgba(168,85,247,0.7)] p-5 m-4 rounded-2xl min-w-20"
+  >
+    <div class="grid grid-cols-3 gap-4 p-4">
+      <!-- Number Buttons -->
+      @for (number of numbers; track number) {
+        <button
+          (click)="showValue(number)"
+          class="h-16 rounded-2xl bg-purple-500/10 text-white text-2xl font-semibold hover:bg-purple-500/30 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.2)] cursor-pointer"
+        >
+          {{ number }}
+        </button>
+      }
+
+      <!-- Operator Buttons -->
+      @for (operator of symbols; track operator) {
+        <button
+          (click)="showValue(operator)"
+          class="h-16 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 text-white text-2xl font-bold hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.5)] cursor-pointer"
+        >
+          {{ operator }}
+        </button>
+      }
+      <button
+        (click)="calculate()"
+        class="h-16 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 text-white text-2xl font-bold hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(168,85,247,0.5)] cursor-pointer"
+      >
+        =
+      </button>
+    </div>
+  </div>
+</section>
