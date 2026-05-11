@@ -1,8 +1,8 @@
 <section
-  class="min-h-screen bg-gradient-to-br from-black via-purple-950 to-indigo-950 my-13 py-2 items-center flex flex-col"
+  class="min-h-screen bg-gradient-to-br from-black via-purple-950 to-indigo-950 md:my-13 py-2 items-center flex flex-col my-20"
 >
- <div
-    class="border-2 min-width-20  border-purple-500/40 bg-purple-500/10 shadow-[0_0_25px_rgba(168,85,247,0.7)] p-5 m-4 rounded-2xl "
+  <div
+    class="border-2 min-width-20 border-purple-500/40 bg-purple-500/10 shadow-[0_0_25px_rgba(168,85,247,0.7)] p-5 m-4 rounded-2xl"
   >
     <h1
       class="text-4xl md:text-7xl font-extrabold leading-tight text-transparent bg-clip-text text-center bg-gradient-to-r from-purple-400 to-pink-500 drop-shadow-[0_0_20px_rgba(168,85,247,0.7)]"
@@ -31,16 +31,16 @@
           {{ task.task }}
         </li>
         <div class="flex items-center gap-2">
-        <input
-          type="checkbox"
-          class="appearance-none w-5 h-5 border-2 border-purple-500 rounded-full checked:bg-purple-500 cursor-pointer"
-        />
-        <button
-          (click)="delete(task.id)"
-          class="text-sm rounded-2xl bg-purple-500 text-white p-2 cursor-pointer"
-        >
-          Delete
-        </button>
+          <input
+            type="checkbox"
+            class="appearance-none w-5 h-5 border-2 border-purple-500 rounded-full checked:bg-purple-500 cursor-pointer"
+          />
+          <button
+            (click)="delete(task.id)"
+            class="text-sm rounded-2xl bg-purple-500 text-white p-2 cursor-pointer"
+          >
+            Delete
+          </button>
         </div>
       </ul>
     }

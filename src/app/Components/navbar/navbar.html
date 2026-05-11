@@ -19,5 +19,29 @@
         </li>
       }
     </ul>
+    <!-- Hamburger Button -->
+    <button class="md:hidden flex p-4 cursor-pointer bg-gray-900 text-white" (click)="toggleMenu()">
+      <lucide-icon [img]="LucideMenu" [size]="24"></lucide-icon>
+    </button>
+
+    <!-- Mobile Menu -->
+    @if (isMenuOpen) {
+      <div class="mobile-menu md:hidden absolute top-full left-0 w-full bg-gray-900 shadow-lg">
+        <ul class="flex flex-col p-4 space-y-2">
+          @for (item of navItems; track item.name) {
+            <li
+              class="text-[#8F00FF] font-medium relative group cursor-pointer py-2"
+              [routerLink]="item.link"
+              (click)="isMenuOpen = false"
+            >
+              {{ item.name }}
+              <span
+                class="absolute left-0 bottom-0 w-0 h-0.5 bg-[#8F00FF] transition-all duration-300 group-hover:w-full"
+              ></span>
+            </li>
+          }
+        </ul>
+      </div>
+    }
   </div>
 </nav>
