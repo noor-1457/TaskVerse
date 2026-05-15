@@ -3,6 +3,7 @@ import { Home } from './home/home';
 import { Todo } from './todo/todo';
 import { Calculator } from './calculator/calculator';
 import { Weather } from './weather/weather'
+import { LoginComponent } from './login/login';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -14,5 +15,9 @@ export const routes: Routes = [
    {
     path: 'weather',
     component: Weather,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 ];

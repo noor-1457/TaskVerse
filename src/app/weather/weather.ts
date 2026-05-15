@@ -5,7 +5,7 @@ import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-weather',
-  standalone: true,
+  // standalone: true,
   imports: [FormsModule],
   templateUrl: './weather.html',
   styleUrl: './weather.css',
